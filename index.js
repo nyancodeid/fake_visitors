@@ -9,6 +9,8 @@ let squel = require("squel")
 const _request = Promise.promisify(request)
 const _jsonRead = Promise.promisify(json.readFile)
 
+let total = 0
+
 let getMember = new Promise((resolve, reject) => {
     _jsonRead('./member.json').then((members) => {
         resolve(members[0].data)
@@ -134,11 +136,19 @@ async function manipulateVisitor() {
         body: `query=${query}`
     }).then((body) => {
         if (body.statusCode == 200 && (body.body == '{"success":true}')) {
-            console.log(`DONE #${fakes.length}`)
+            console.log(`T:[${total}] DONE #${fakes.length}`)
+
+            total += fakes.length * 1
         } else {
             console.error(body.body)
         }
     })
 }
 
-manipulateVisitor()
+setInterval(() => {
+    if (total >= 3000) {
+        console.error('STOP')
+    } else {
+        manipulateVisitor()
+    }
+}, 5000)
