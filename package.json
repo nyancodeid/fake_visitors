@@ -1,0 +1,15 @@
+{
+  "name": "visitor-tuyul",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^2.6.0",
+    "bluebird": "^3.5.1",
+    "jsonfile": "^4.0.0",
+    "moment": "^2.21.0",
+    "request": "^2.83.0",
+    "squel": "^5.12.1",
+    "underscore": "^1.8.3"
+  }
+}
