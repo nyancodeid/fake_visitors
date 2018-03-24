@@ -151,4 +151,4 @@ setInterval(() => {
     } else {
         manipulateVisitor()
     }
-}, 5000)
+}, 1000 * 30)
